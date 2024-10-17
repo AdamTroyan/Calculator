@@ -1,0 +1,89 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Background="Gray"
+        Title="Calculator" Height="610" Width="400">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="YellowGreen"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Command" Value="{Binding Path=buttonPressedCommand}"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Path=KeyPressedString}" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Grid.Row="0"/>
+
+        <TextBlock Text="{Binding Path=Entered_Number}" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="50" FontWeight="Bold" Grid.Row="1"/>
+
+        <StackPanel Grid.Row="2" Background="DimGray">
+            <Grid Height="470">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" Grid.Row="1" Content="Clr" CommandParameter="Clr"/>
+                <Button Grid.Column="3" Grid.Row="1" Content="" CommandParameter="Null"/>
+                <Button Grid.Column="5" Grid.Row="1" Content="" CommandParameter="Null"/>
+                <Button Grid.Column="7" Grid.Row="1" Content="/" CommandParameter="/"/>
+
+                <Button Grid.Column="1" Grid.Row="3" Content="7" CommandParameter="7"/>
+                <Button Grid.Column="3" Grid.Row="3" Content="8" CommandParameter="8"/>
+                <Button Grid.Column="5" Grid.Row="3" Content="9" CommandParameter="9"/>
+                <Button Grid.Column="7" Grid.Row="3" Content="X" CommandParameter="*"/>
+
+                <Button Grid.Column="1" Grid.Row="5" Content="4" CommandParameter="4"/>
+                <Button Grid.Column="3" Grid.Row="5" Content="5" CommandParameter="5"/>
+                <Button Grid.Column="5" Grid.Row="5" Content="6" CommandParameter="6"/>
+                <Button Grid.Column="7" Grid.Row="5" Content="-" CommandParameter="-"/>
+
+                <Button Grid.Column="1" Grid.Row="7" Content="1" CommandParameter="1"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="2" CommandParameter="2"/>
+                <Button Grid.Column="5" Grid.Row="7" Content="3" CommandParameter="3"/>
+                <Button Grid.Column="7" Grid.Row="7" Content="+" CommandParameter="+"/>
+
+                <Button Grid.Column="1" Grid.Row="9" Content="" CommandParameter="Null"/>
+                <Button Grid.Column="3" Grid.Row="9" Content="0" CommandParameter="0"/>
+                <Button Grid.Column="5" Grid.Row="9" Content="." CommandParameter="."/>
+                <Button Grid.Column="7" Grid.Row="9" Content="=" CommandParameter="="/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>
